@@ -1,0 +1,11 @@
+.git
+.venv
+**/node_modules
+**/__pycache__
+*.pyc
+.env
+.env.*
+!.env.example
+data/raw/*.csv
+frontend/dist
+**/.DS_Store

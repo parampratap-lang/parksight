@@ -7,6 +7,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 # load ANTHROPIC_API_KEY from parksight/.env if present
 load_dotenv(Path(__file__).resolve().parents[2] / ".env")
@@ -31,9 +32,15 @@ app.add_middleware(
 app.include_router(data.router)
 app.include_router(assistant.router)
 
-
-@app.get("/")
-def root():
-    return {"service": "ParkSight API", "docs": "/docs",
-            "endpoints": ["/api/kpis", "/api/hotspots", "/api/routes",
-                          "/api/assistant", "/api/brief/{id}"]}
+# In production the Docker image builds the React app to frontend/dist and
+# FastAPI serves it at "/" (same origin as /api, so the frontend's relative
+# fetches just work). In local dev dist is absent → expose a JSON root instead.
+_DIST = Path(__file__).resolve().parents[2] / "frontend" / "dist"
+if _DIST.exists():
+    app.mount("/", StaticFiles(directory=str(_DIST), html=True), name="spa")
+else:
+    @app.get("/")
+    def root():
+        return {"service": "ParkSight API", "docs": "/docs",
+                "endpoints": ["/api/kpis", "/api/hotspots", "/api/routes",
+                              "/api/assistant", "/api/brief/{id}"]}
