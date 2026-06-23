@@ -1,0 +1,17 @@
+# data
+data/raw/*.csv
+*.parquet
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.env
+
+# node
+node_modules/
+dist/
+.vite/
+
+# os
+.DS_Store
