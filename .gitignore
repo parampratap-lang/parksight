@@ -1,6 +1,7 @@
-# data
+# data — excluded from the public repo (raw police CSV + derived artifacts)
 data/raw/*.csv
 *.parquet
+backend/artifacts/
 
 # python
 .venv/

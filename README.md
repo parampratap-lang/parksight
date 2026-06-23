@@ -10,6 +10,11 @@ traffic flow, and tell officers exactly where and when to enforce.**
 
 > Built on a real anonymized BTP dataset (Nov 2023 – Apr 2024, 298K records). No synthetic data.
 
+> **Note:** This public repo is **code-only**. The source CSV and the derived
+> `backend/artifacts/*.json` are git-ignored (police-data sensitivity). To see the
+> dashboard with data, supply your own `data/raw/violations.csv` and run
+> `python build/build_artifacts.py` (see Quickstart).
+
 ---
 
 ## What it does (4 pillars)

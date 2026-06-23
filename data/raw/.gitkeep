@@ -1,4 +1,6 @@
-# Place the source CSV here as `violations.csv` to rebuild artifacts from scratch.
-# The raw 109MB CSV is intentionally git-ignored (size + data sensitivity).
-# The app ships with precomputed backend/artifacts/*.json, so it runs without it.
-# To rebuild:  ../../.venv/bin/python ../../backend/build/build_artifacts.py
+# This public repo ships CODE ONLY. The raw 109MB CSV and the derived
+# backend/artifacts/*.json are git-ignored (police-data sensitivity).
+#
+# To run with data: drop your source CSV here as `violations.csv`, then:
+#   ../../.venv/bin/python ../../backend/build/build_artifacts.py
+# That regenerates backend/artifacts/*.json and the app comes alive.
