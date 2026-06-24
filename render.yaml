@@ -1,6 +1,6 @@
 # Render Blueprint — one web service running the full app (FastAPI + built React + artifacts).
 # Deploy from a PRIVATE repo that includes backend/artifacts/*.json.
-# In the Render dashboard: New → Blueprint → connect the private repo → set ANTHROPIC_API_KEY.
+# In the Render dashboard: New → Blueprint → connect the private repo → set GROQ_API_KEY.
 services:
   - type: web
     name: parksight
@@ -9,5 +9,5 @@ services:
     dockerfilePath: ./Dockerfile
     healthCheckPath: /api/health
     envVars:
-      - key: ANTHROPIC_API_KEY
+      - key: GROQ_API_KEY
         sync: false        # set this secret in the Render dashboard; never commit it

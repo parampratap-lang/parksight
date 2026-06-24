@@ -1,4 +1,4 @@
-"""System-prompt builders + grounding-context injection for Claude.
+"""System-prompt builders + grounding-context injection for the LLM.
 
 The model only ever sees the precomputed artifacts (compact JSON), never raw
 rows — so it quotes our numbers instead of inventing them.

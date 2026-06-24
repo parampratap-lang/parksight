@@ -1,5 +1,5 @@
 """ParkSight FastAPI app: loads precomputed artifacts into memory at startup,
-serves them + proxies Claude. Run: uvicorn app.main:app --reload --port 8000"""
+serves them + proxies the Groq LLM. Run: uvicorn app.main:app --reload --port 8000"""
 from __future__ import annotations
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -9,7 +9,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-# load ANTHROPIC_API_KEY from parksight/.env if present
+# load GROQ_API_KEY from parksight/.env if present
 load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
 from .store import ArtifactStore

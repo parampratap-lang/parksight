@@ -1,4 +1,4 @@
-"""Claude-powered endpoints: grounded NL assistant + per-hotspot enforcement briefs."""
+"""LLM-powered endpoints: grounded NL assistant + per-hotspot enforcement briefs."""
 from __future__ import annotations
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import StreamingResponse
